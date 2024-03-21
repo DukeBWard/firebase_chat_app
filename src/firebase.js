@@ -1,11 +1,10 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
-import { API_KEY } from "../key";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: API_KEY,
+  apiKey: process.env.API_KEY,
   authDomain: "lukes-chat-706f4.firebaseapp.com",
   projectId: "lukes-chat-706f4",
   storageBucket: "lukes-chat-706f4.appspot.com",
