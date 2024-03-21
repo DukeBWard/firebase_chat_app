@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import Add from "../img/addAvatar.png";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth, storage } from "../firebase";
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 const Register = () => {
 
-    const handleSubmit = (e) => {
+    const [err, setErr] = useState(false)
+    const handleSubmit = async (e) => {
         e.preventDefault();
       
         const displayName = e.target[0].value;
@@ -13,19 +15,53 @@ const Register = () => {
         const password = e.target[2].value;
         const file = e.target[3].files[0];
         
-        createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            // Signed up 
-            const user = userCredential.user;
-            // ...
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            // ..
-        });
+
+        try {
+            const res = await createUserWithEmailAndPassword(auth, email, password)
+
+            const storageRef = ref(storage, displayName);
+
+            const uploadTask = uploadBytesResumable(storageRef, file);
+
+            // Register three observers:
+            // 1. 'state_changed' observer, called any time the state changes
+            // 2. Error observer, called on failure
+            // 3. Completion observer, called on successful completion
+            uploadTask.on('state_changed', 
+            (snapshot) => {
+                // Observe state change events such as progress, pause, and resume
+                // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+                const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                console.log('Upload is ' + progress + '% done');
+                switch (snapshot.state) {
+                case 'paused':
+                    console.log('Upload is paused');
+                    break;
+                case 'running':
+                    console.log('Upload is running');
+                    break;
+                }
+            }, 
+            (error) => {
+                // Handle unsuccessful uploads
+            }, 
+            () => {
+                // Handle successful uploads on complete
+                // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                console.log('File available at', downloadURL);
+                });
+            }
+            );
+
+        }
+        catch(err) {
+            setErr(true);
+        }
+       
+  
         
-    }
+    };
 
     return (
         <div className="formContainer">
@@ -42,6 +78,7 @@ const Register = () => {
                         <span>Add profile picture</span>    
                     </label> 
                     <button>Sign Up</button>
+                    {err && <span>Sign Up Error</span>}
                 </form>
                 <p>You have an account? Login</p>
             </div>
