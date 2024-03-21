@@ -5,7 +5,7 @@ import { auth, storage } from "../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 
 const Register = () => {
@@ -25,7 +25,6 @@ const Register = () => {
         try {
    
             const res = await createUserWithEmailAndPassword(auth, email, password);
-
       
             const date = new Date().getTime();
             const storageRef = ref(storage, `${displayName + date}`);
@@ -79,7 +78,7 @@ const Register = () => {
                     <button>Sign Up</button>
                     {err && <span>Sign Up Error</span>}
                 </form>
-                <p>You have an account? Login</p>
+                <p>You have an account?  <Link to="/login">Login</Link></p>
             </div>
         </div>
     )

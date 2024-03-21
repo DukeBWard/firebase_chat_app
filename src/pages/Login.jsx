@@ -17,7 +17,7 @@ const Login = () => {
 
         try {
             await signInWithEmailAndPassword(auth, email, password);
-            navigate("/login");
+            navigate("/");
         } catch (err) {
             setErr(true);
             setLoading(false);
@@ -29,9 +29,8 @@ const Login = () => {
         <div className="formContainer">
             <div className="formWrapper">
                 <span className="logo">Uey Chat</span>
-                <span className="title">Register</span>
+                <span className="title">Login</span>
                 <form onSubmit={handleSubmit}>
-                    <input type="text" placeholder="Username"/>
                     <input type="email" placeholder="Email"/>
                     <input type="password" placeholder="Password"/>
                     <button>Sign in</button>
