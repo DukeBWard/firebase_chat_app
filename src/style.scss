@@ -1,5 +1,5 @@
 .formContainer {
-    background-color: #151a7b;
+    background-color: white;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -72,14 +72,14 @@
 }
 
 .home {
-    background-color: #151a7b;
+    background-color: white;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
 
     .container {
-        border: 1px solid white;
+        border: 1px solid lightgray;
         border-radius: 10px;
         width: 65%;
         height: 60%;
@@ -161,10 +161,108 @@
                     border-radius: 50%;
                     object-fit: cover;
                 }
+
+                .userChatInfo {
+                    span {
+                        font-size: 18px;
+                        font-weight: 500;
+                    }
+                    p {
+                        font-size: 14px;
+                        color: lightgray
+                    }
+                }
             }
         }
+
         .chat {
             flex: 2;
+
+            .chatInfo {
+                height: 50px;
+                background-color: #e63b60;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 10px;
+                color: lightgray;
+            }
+
+            .chatIcons {
+                display: flex;
+                gap: 10px;
+
+                img {
+                    height: 24px;
+                    cursor: pointer;
+                }
+            }
+
+            .messages {
+                background-color: #ffabbd;
+                padding: 10px;
+                height: calc(100% - 160px);
+
+                .message {
+                    display: flex;
+                    gap: 20px;
+
+                    .messageInfo {
+                        img {
+                            width: 40px;
+                            height: 40px;
+                            border-radius:  50%;
+                            object-fit: cover;
+                        }
+                    }
+
+                    .messageContent {
+                        img {
+                            width: 50%;
+                            
+                        }
+                    }
+                }
+            }
+
+            .input {
+                height: 50px;
+                background-color: white;
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                input {
+                    width: 100%;
+                    border: none;
+                    outline: none;
+                    color: #4359d9;
+                    font-size: 18px;
+
+                    &::placeholder {
+                        color: lightgray;
+                    }
+                }
+
+                .send {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+
+                    img {
+                        height: 24px;
+                        cursor: pointer;
+                    }
+
+                    button {
+                        border: none;
+                        padding: 10px 15px;
+                        color:white;
+                        background-color: #4359d9;
+                    }
+                }
+            }
         }
     }
 }
