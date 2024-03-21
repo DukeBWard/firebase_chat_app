@@ -16,6 +16,12 @@
     }
 }
 
+$green1: #758467;
+$green2: #819171;
+$green3: #9caf88;
+$green4: #cbd5c0;
+$green5: #dfe6da;
+
 .formContainer {
     background-color: white;
     height: 100vh;
@@ -24,7 +30,7 @@
     justify-content: center;
 
     .formWrapper {
-        background-color: white;
+        background-color: $green5;
         padding: 20px 60px;
         border-radius: 10px;
         display: flex;
@@ -33,13 +39,13 @@
         align-items: center;
         
         .logo {
-            color: #067fd0;
+            color: $green1;
             font-weight: bold;
             font-size: 32px;
         }
 
         .title {
-            color: #067fd0;
+            color: $green1;
             font-size: 12px;
         }
 
@@ -52,14 +58,14 @@
                 padding: 15px;
                 border: none;
                 width: 250px;
-                border-bottom: 1px solid #80c6e6;
+                border-bottom: 1px solid $green3;
                 &::placeholder {
                     color: rgb(175,175,175);
                 }
             }
 
             button {
-                background-color: #4359d9;
+                background-color: $green2;
                 color: white;
                 padding: 10px;
                 font-weight: bold;
@@ -71,7 +77,7 @@
                 display: flex;
                 align-items: center;
                 gap: 10px;
-                color: #c9e3e7;
+                color: rgb(175,175,175);
                 font-size: 12;
                 cursor: pointer;
             }
@@ -82,7 +88,7 @@
         }
 
         p {
-            color: #80c6e6;
+            color: black;
             font-size: 12px;
             margin-top: 10px;
         }
@@ -109,17 +115,17 @@
 
         .sidebar {
             flex: 1;
-            background-color: #067fd0;
+            background-color: $green2;
             position: relative;
 
             .navbar {
                 display: flex;
                 align-items: center;
-                background-color: #223bc9;
+                background-color: $green1;
                 height: 50px;
                 padding: 10px;
                 justify-content: space-between;
-                color: #c9e3e7;
+                color: white;
 
                 .logo {
                     font-weight: bold;
@@ -133,7 +139,7 @@
                     gap:10px;
 
                     img {
-                        background-color: #c9e3e7;
+                        background-color: white;
                         height: 24px;
                         width: 24px;
                         border-radius: 50%;
@@ -141,8 +147,8 @@
                     }
 
                     button {
-                        background-color: #4359d9;
-                        color: #c9e3e7;
+                        background-color: $green2;
+                        color: white;
                         font-size: 10px;
                         border: none;
                         cursor: pointer;
@@ -181,7 +187,7 @@
                 cursor: pointer;
 
                 &:hover {
-                    background-color: #223bc9;
+                    background-color: $green1;
                 }
 
                 img {
@@ -198,7 +204,7 @@
                     }
                     p {
                         font-size: 14px;
-                        color: lightgray
+                        color: white
                     }
                 }
             }
@@ -209,12 +215,12 @@
 
             .chatInfo {
                 height: 50px;
-                background-color: #e63b60;
+                background-color: $green3;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
                 padding: 10px;
-                color: lightgray;
+                color: white;
             }
 
             .chatIcons {
@@ -228,7 +234,7 @@
             }
 
             .messages {
-                background-color: #ffabbd;
+                background-color: $green5;
                 padding: 10px;
                 height: calc(100% - 160px);
                 overflow-x: hidden;
@@ -279,7 +285,7 @@
                             align-items: flex-end;
 
                             p {
-                                background: #e63b60;
+                                background: $green1;
                                 color: white;
                                 border-radius: 10px 0 10px 10px;
                                 max-width: max-content;
@@ -323,7 +329,7 @@
                         border: none;
                         padding: 10px 15px;
                         color:white;
-                        background-color: #4359d9;
+                        background-color: $green2;
                     }
                 }
             }

@@ -5,6 +5,7 @@ import { AuthContext } from "../context/AuthContext";
 import { ChatContext } from "../context/ChatContext";
 import {
   arrayUnion,
+  collectionGroup,
   doc,
   serverTimestamp,
   Timestamp,
@@ -74,12 +75,15 @@ const Input = () => {
     setimg(null);
   };
 
+  const handleKey = (e) => {
+    e.code === "Enter" && handleSend();
+  };
+
   return (
     <div className='input'>
-      <input type="text" placeholder='Type your message' onChange={e=>setText(e.target.value)}
+      <input type="text" placeholder='Type your message'  onKeyDown={handleKey} onChange={e=>setText(e.target.value) }
       value={text}/>
       <div className="send">
-        <img src={Attach} alt="" />
         <input type="file" style={{display:"none"}} id="file" onChange={e=>setimg(e.target.files[0])}/>
         <label htmlFor="file">
           <img src={Img} alt="" />
