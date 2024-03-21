@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from 'react'
 import { doc, onSnapshot } from 'firebase/firestore';
 import { db } from '../firebase';
 import { AuthContext } from '../context/AuthContext';
+import { ChatContext } from '../context/ChatContext';
 
 const Chats = () => {
     // there are called use state hooks
@@ -10,6 +11,7 @@ const Chats = () => {
     const[chats, setChats] = useState([]);
 
     const {currUser} =  useContext(AuthContext);
+    const { dispatch } = useContext(ChatContext);
     
     //useeffect is another react hook that allows you to do side efefcts in func components
     //these are effects that happen outside of the scope of the component such as data fetching, subscriptions
@@ -27,11 +29,15 @@ const Chats = () => {
     
     console.log(Object.entries(chats));
 
+    const handleSelect = (user) => {
+        dispatch({type: "CHANGE_USER", payload: user});
+    }
+
     // the ? in the map function checks for undefined/null
     return (
     <div className='chats'>
         {Object.entries(chats)?.map(chat=>(
-        <div className="userChat" key={chat[0]}>
+        <div className="userChat" key={chat[0]} onClick={() => handleSelect(chat[1].userInfo)}>
             <img src={chat[1].userInfo.photoURL} alt="" />
             <div className="userChatInfo">
                 <span>{chat[1].userInfo.displayName}</span>
