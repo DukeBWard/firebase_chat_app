@@ -1,5 +1,5 @@
 .formContainer {
-    background-color: #80c6e6;
+    background-color: #151a7b;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -15,13 +15,13 @@
         align-items: center;
         
         .logo {
-            color: lightcoral;
+            color: #067fd0;
             font-weight: bold;
             font-size: 32px;
         }
 
         .title {
-            color: lightcoral;
+            color: #067fd0;
             font-size: 12px;
         }
 
@@ -41,7 +41,7 @@
             }
 
             button {
-                background-color: lightcoral;
+                background-color: #c9e3e7;
                 color: white;
                 padding: 10px;
                 font-weight: bold;
@@ -53,7 +53,7 @@
                 display: flex;
                 align-items: center;
                 gap: 10px;
-                color: lightcoral;
+                color: #c9e3e7;
                 font-size: 12;
                 cursor: pointer;
             }
@@ -72,7 +72,7 @@
 }
 
 .home {
-    background-color: #80c6e6;
+    background-color: #151a7b;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -88,16 +88,79 @@
 
         .sidebar {
             flex: 1;
-            background-color: #c89866;
+            background-color: #067fd0;
 
             .navbar {
                 display: flex;
                 align-items: center;
-                background-color: #994c01;
+                background-color: #223bc9;
                 height: 50px;
                 padding: 10px;
                 justify-content: space-between;
-                color: 
+                color: #c9e3e7;
+
+                .logo {
+                    font-weight: bold;
+                }
+
+                .user {
+                    display: flex;
+                    gap:10px;
+
+                    img {
+                        background-color: #c9e3e7;
+                        height: 24px;
+                        width: 24px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+
+                    button {
+                        background-color: #4359d9;
+                        color: #c9e3e7;
+                        font-size: 10px;
+                        border: none;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .search {
+                border-bottom: 1px solid gray;
+
+                .searchForm {
+                    padding: 10px;
+                    
+                    input {
+                        background-color: transparent;
+                        border: none;
+                        color: white;
+                        outline: none;
+
+                        &::placeholder {
+                            color: lightgray;
+                        }
+                    }
+                }
+            }
+            .userChat {
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                color: white;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #223bc9;
+                }
+
+                img {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
             }
         }
         .chat {
