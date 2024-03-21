@@ -24,6 +24,7 @@ const Register = () => {
 
         try {
    
+            // PASSWORD MUST BE ATLEAST 6 CHARACTERS LONG
             const res = await createUserWithEmailAndPassword(auth, email, password);
       
             const date = new Date().getTime();
