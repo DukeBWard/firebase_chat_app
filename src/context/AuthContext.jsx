@@ -11,13 +11,22 @@ export const AuthContextProvider = ({ children }) => {
     const [currUser, setCurrUser] = useState({});
 
     useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
             setCurrUser(user);
             console.log(user)
         });
+
+        //make sure to clean up or there will be mem leak
+        return () => {
+            unsubscribe();
+        }
     }, []);
 
-    <AuthContext.Provider value={{currUser}}>
-        {children}
-    </AuthContext.Provider>
+    return (
+        <AuthContext.Provider value={{currUser}}>
+            {children}
+        </AuthContext.Provider>
+    )
+
+   
 }
