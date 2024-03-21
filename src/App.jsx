@@ -5,7 +5,7 @@ import "./style.scss"
 // lesson learned, react needs capitalize first letter on jsx components
 function App() {
   return (
-    <Home/>
+    <Register/>
   );
 }
 
