@@ -9,6 +9,7 @@ import { AuthContext } from "./context/AuthContext";
 // lesson learned, react needs capitalize first letter on jsx components
 function App() {
   const {currUser} = useContext(AuthContext);
+  //console.log(currUser);
 
   const ProtectedRoute = ({children}) => {
     if (!currUser) 
