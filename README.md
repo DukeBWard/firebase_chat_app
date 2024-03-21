@@ -1,3 +1,3 @@
-# firebase_chat_app
+# Uey Chat
 
 Simple Chat App
