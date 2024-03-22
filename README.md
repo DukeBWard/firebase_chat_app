@@ -5,6 +5,7 @@ An everyday messaging chat with authentication, image sharing, and live communic
 
 Try it live [here](https://purple-wave-0bb4fbb10.5.azurestaticapps.net)
 
+(Please make sure your password is atleast 6 characters long)
 
 ## Features
 
